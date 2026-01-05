@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Lens Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Pro Lens Gallery</h1>
+        <p class="subtitle">A showcase of visual storytelling</p>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+            <button class="filter-btn" data-filter="architecture">Architecture</button>
+            <button class="filter-btn" data-filter="people">People</button>
+        </div>
+    </header>
+
+    <main class="gallery-grid">
+        <div class="gallery-item" data-category="nature">
+            <img src="https://images.unsplash.com/photo-1603979649806-5299879db16b?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mountain Lake">
+            <div class="item-overlay">
+                <span>View Nature</span>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="nature">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="Forest Sunlight">
+             <div class="item-overlay">
+                <span>View Nature</span>
+            </div>
+        </div>
+
+        <div class="gallery-item" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=800&auto=format&fit=crop" alt="Modern Building">
+             <div class="item-overlay">
+                <span>View Architecture</span>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop" alt="City Skyscraper">
+             <div class="item-overlay">
+                <span>View Architecture</span>
+            </div>
+        </div>
+
+         <div class="gallery-item" data-category="people">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Portrait">
+             <div class="item-overlay">
+                <span>View Portrait</span>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="people">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="Man Smiling">
+             <div class="item-overlay">
+                <span>View Portrait</span>
+            </div>
+        </div>
+         <div class="gallery-item" data-category="nature">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800&auto=format&fit=crop" alt="Foggy Mountains">
+             <div class="item-overlay">
+                <span>View Nature</span>
+            </div>
+        </div>
+         <div class="gallery-item" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=800&auto=format&fit=crop" alt="Old House">
+             <div class="item-overlay">
+                <span>View Architecture</span>
+            </div>
+        </div>
+    </main>
+
+    <div id="lightbox-modal" class="lightbox">
+        <span class="close-icon">&times;</span>
+        
+        <div class="lightbox-content">
+            <button class="nav-btn prev-btn">&#10094;</button>
+            <img src="" alt="Lightbox Preview" class="lightbox-image">
+            <button class="nav-btn next-btn">&#10095;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

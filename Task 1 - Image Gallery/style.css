@@ -1,0 +1,211 @@
+/* --- Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 20px;
+}
+
+/* --- Header & Filters --- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border: 2px solid #333;
+    background: transparent;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #333;
+    color: #fff;
+}
+
+/* --- Main Gallery Grid Layout --- */
+.gallery-grid {
+    display: grid;
+    /* The magic line for responsiveness: creates as many columns of at least 300px as fit */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* --- Gallery Items & Hover Effects --- */
+.gallery-item {
+    position: relative;
+    height: 300px; /* Fixed height for uniform look */
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    /* Smooth transition for filtering hide/show */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Class added by JS to hide filtered items smoothly */
+.gallery-item.hide {
+    transform: scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute; /* Takes it out of grid flow */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* The dark overlay with text */
+.item-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+.item-overlay span {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+/* Hover triggers */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom effect */
+}
+
+.gallery-item:hover .item-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover .item-overlay span {
+    transform: translateY(0);
+}
+
+/* --- Lightbox Modal Style --- */
+.lightbox {
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Hidden state for fading */
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 85vh; /* Ensure it doesn't overflow vertical screen */
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* --- Lightbox Controls --- */
+.close-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: color 0.2s;
+}
+
+.nav-btn {
+    position: absolute;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 50px;
+    cursor: pointer;
+    padding: 20px;
+    z-index: 1001;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.nav-btn:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.prev-btn { left: -80px; }
+.next-btn { right: -80px; }
+
+.close-icon:hover { color: #ff5555; }
+
+/* --- Responsive Adjustments for Lightbox Arrows --- */
+@media (max-width: 768px) {
+    .nav-btn {
+        font-size: 35px;
+        padding: 10px;
+        background: rgba(0,0,0,0.5); /* Add background for better visibility on mobile */
+        border-radius: 5px;
+    }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+}

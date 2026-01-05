@@ -1,0 +1,114 @@
+/* --- Reset & Base Styles --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e1e2e, #2d2d44);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Calculator Body --- */
+.calculator-container {
+    background-color: #22252d;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* --- Display Screen --- */
+.display {
+    background-color: #181a20;
+    min-height: 100px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 20px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    min-height: 1.2rem;
+}
+
+.current-operand {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+/* --- Buttons Grid --- */
+.keys-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #2d313a;
+    color: #fff;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: #3e434f;
+}
+
+button:active {
+    transform: scale(0.95);
+    background-color: #505563;
+}
+
+/* --- Special Button Styles --- */
+.span-two {
+    grid-column: span 2;
+}
+
+.operator-btn {
+    background-color: #26c6da; /* Cyan */
+    color: #000;
+}
+
+.operator-btn:hover {
+    background-color: #4dd0e1;
+}
+
+.equals-btn {
+    background-color: #ff7043; /* Orange */
+    color: white;
+}
+
+.equals-btn:hover {
+    background-color: #ff8a65;
+}
+
+.control-btn {
+    background-color: #ef5350; /* Red */
+    color: white;
+}
+
+.control-btn:hover {
+    background-color: #e57373;
+}
